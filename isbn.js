@@ -3,20 +3,7 @@
 
 var ISBN = {
   VERSION: '0.01',
-  GROUPS: {
-    '0': {
-      'name': 'English speaking area',
-      'ranges': [['00', '19'], ['200', '699'], ['7000', '8499'], ['85000', '89999'], ['900000', '949999'], ['9500000', '9999999']]
-    },
-    '1': {
-      'name': 'English speaking area',
-      'ranges': [['00', '09'], ['100', '399'], ['4000', '5499'], ['55000', '86979'], ['869800', '998999']]
-    },
-    '4': {
-      'name': 'Japan',
-      'ranges': [['00','19'], ['200','699'], ['7000','8499'], ['85000','89999'], ['900000','949999'], ['9500000','9999999']]
-    }
-  },
+  GROUPS: require('./isbn-groups').GROUPS,
 
   isbn: function () {
     this.initialize.apply(this, arguments);
@@ -223,7 +210,7 @@ ISBN.isbn.prototype = {
     return null;
   }
 };
-  
+
   var exports = typeof window === 'object' && window ? window: module.exports;
   exports.ISBN = ISBN;
 }());
